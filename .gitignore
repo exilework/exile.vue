@@ -37,6 +37,7 @@ __screenshots__/
 
 # Vite
 *.timestamp-*-*.mjs
+.vite/
 
 # Example / prototype (reference only, not part of the build)
 example/
