@@ -37,3 +37,9 @@ __screenshots__/
 
 # Vite
 *.timestamp-*-*.mjs
+
+# Example / prototype (reference only, not part of the build)
+example/
+
+# asdf
+.tool-versions
