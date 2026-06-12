@@ -58,7 +58,7 @@ const year = new Date().getFullYear()
       </div>
 
       <div>
-        <div class="font-mono text-xs uppercase tracking-wider text-muted-foreground">Legal</div>
+        <div class="font-mono text-xs uppercase tracking-wider text-muted-foreground">{{ t('footer.col.legal') }}</div>
         <div class="mt-4 space-y-3 font-mono text-[11px] leading-relaxed text-muted-foreground">
           <div>
             <div class="text-foreground/80">Exile Work LTDA</div>
@@ -66,12 +66,12 @@ const year = new Date().getFullYear()
             <div>+55 (47) 99627-8180</div>
           </div>
           <div>
-            <div class="text-foreground/60 uppercase tracking-wider text-[10px]">Studio</div>
+            <div class="text-foreground/60 uppercase tracking-wider text-[10px]">{{ t('footer.legal.studio') }}</div>
             <div>R. Orestes Guimarães, 876</div>
             <div>4º andar — Joinville SC</div>
           </div>
           <div>
-            <div class="text-foreground/60 uppercase tracking-wider text-[10px]">Legal &amp; Fiscal</div>
+            <div class="text-foreground/60 uppercase tracking-wider text-[10px]">{{ t('footer.legal.fiscal') }}</div>
             <div>Av. Paulista 1106, Sl. 01</div>
             <div>Andar 16 — São Paulo SP</div>
           </div>
