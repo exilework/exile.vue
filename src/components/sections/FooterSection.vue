@@ -12,7 +12,7 @@ const year = new Date().getFullYear()
 
 <template>
   <footer class="border-t border-border bg-background">
-    <div class="mx-auto grid max-w-7xl gap-10 px-6 py-14 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
+    <div class="mx-auto grid max-w-7xl gap-10 px-6 py-14 md:grid-cols-[1.4fr_1fr_1fr_1fr_1.2fr]">
       <div>
         <div class="flex items-center gap-2">
           <div
@@ -55,6 +55,27 @@ const year = new Date().getFullYear()
             <a href="#contact" class="text-foreground/80 transition-colors hover:text-foreground">{{ t('footer.contact.schedule') }}</a>
           </li>
         </ul>
+      </div>
+
+      <div>
+        <div class="font-mono text-xs uppercase tracking-wider text-muted-foreground">Legal</div>
+        <div class="mt-4 space-y-3 font-mono text-[11px] leading-relaxed text-muted-foreground">
+          <div>
+            <div class="text-foreground/80">Exile Work LTDA</div>
+            <div>CNPJ 54.468.070/0001-06</div>
+            <div>+55 (47) 99627-8180</div>
+          </div>
+          <div>
+            <div class="text-foreground/60 uppercase tracking-wider text-[10px]">Studio</div>
+            <div>R. Orestes Guimarães, 876</div>
+            <div>4º andar — Joinville SC</div>
+          </div>
+          <div>
+            <div class="text-foreground/60 uppercase tracking-wider text-[10px]">Legal &amp; Fiscal</div>
+            <div>Av. Paulista 1106, Sl. 01</div>
+            <div>Andar 16 — São Paulo SP</div>
+          </div>
+        </div>
       </div>
     </div>
 

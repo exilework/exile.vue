@@ -49,6 +49,23 @@ describe('ExileWork landing page', () => {
     cy.get('footer').contains('Exile.work').should('be.visible')
   })
 
+  it('footer shows legal company name and CNPJ', () => {
+    cy.get('footer').contains('Exile Work LTDA').should('exist')
+    cy.get('footer').contains('54.468.070/0001-06').should('exist')
+  })
+
+  it('footer shows contact phone number', () => {
+    cy.get('footer').contains('+55 (47) 99627-8180').should('exist')
+  })
+
+  it('footer shows studio address in Joinville', () => {
+    cy.get('footer').contains('Joinville SC').should('exist')
+  })
+
+  it('footer shows legal address in São Paulo', () => {
+    cy.get('footer').contains('São Paulo SP').should('exist')
+  })
+
   it('language switcher is present and opens a dropdown', () => {
     cy.get('button[aria-haspopup="listbox"]').first().click()
     cy.contains('Português').should('be.visible')
@@ -57,6 +74,7 @@ describe('ExileWork landing page', () => {
   it('switching language changes nav text', () => {
     cy.get('button[aria-haspopup="listbox"]').first().click()
     cy.contains('button', 'Português').click()
+    cy.get('body').click(0, 0)
     cy.get('header nav').contains('Capacidades').should('be.visible')
   })
 })
