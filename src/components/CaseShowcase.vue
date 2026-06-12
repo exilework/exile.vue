@@ -196,23 +196,27 @@ const accentVar: Record<string, string> = {
                 <slot />
               </div>
 
+            </div>
+
+            <div
+              v-if="props.annotations?.length"
+              :class="[
+                'flex flex-wrap justify-end gap-1.5 px-3 pb-3 pt-2',
+                props.tone === 'dark' ? 'bg-background/[0.04]' : 'bg-background',
+              ]"
+            >
               <div
-                v-if="props.annotations?.length"
-                class="pointer-events-none absolute inset-x-3 bottom-3 flex flex-wrap justify-end gap-1.5"
+                v-for="a in props.annotations"
+                :key="a.label"
+                :class="[
+                  'rounded-md border px-2 py-1 font-mono text-[10px]',
+                  props.tone === 'dark'
+                    ? 'border-background/20 bg-background/[0.06] text-background/85'
+                    : 'border-border bg-background/90 text-foreground/85',
+                ]"
               >
-                <div
-                  v-for="a in props.annotations"
-                  :key="a.label"
-                  :class="[
-                    'rounded-md border px-2 py-1 font-mono text-[10px] backdrop-blur',
-                    props.tone === 'dark'
-                      ? 'border-background/20 bg-background/30 text-background/85'
-                      : 'border-border bg-background/90 text-foreground/85',
-                  ]"
-                >
-                  <span :class="props.tone === 'dark' ? 'text-background/55' : 'text-muted-foreground'">{{ a.label }} </span>
-                  <span :style="a.accent ? { color: accentVar[a.accent] } : {}">{{ a.value }}</span>
-                </div>
+                <span :class="props.tone === 'dark' ? 'text-background/55' : 'text-muted-foreground'">{{ a.label }} </span>
+                <span :style="a.accent ? { color: accentVar[a.accent] } : {}">{{ a.value }}</span>
               </div>
             </div>
 

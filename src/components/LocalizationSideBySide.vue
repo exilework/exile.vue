@@ -19,7 +19,7 @@ const cols = computed(() => [
 </script>
 
 <template>
-  <div class="relative h-full w-full">
+  <div class="relative h-full w-full bg-card">
     <div class="absolute inset-0 dot-bg opacity-30" />
     <div class="relative grid h-full grid-cols-2 gap-3 p-5">
       <div
