@@ -1,6 +1,10 @@
 describe('ExileWork landing page', () => {
   beforeEach(() => {
-    cy.visit('/')
+    cy.visit('/', {
+      onBeforeLoad(win) {
+        win.localStorage.setItem('exile.work.locale', 'en')
+      },
+    })
   })
 
   it('loads the page and shows the brand name', () => {
@@ -9,6 +13,7 @@ describe('ExileWork landing page', () => {
 
   it('has a sticky navigation with links', () => {
     cy.get('header').should('be.visible')
+    cy.get('header nav').should('be.visible')
     cy.get('header nav').contains('Capabilities').should('be.visible')
   })
 
@@ -21,7 +26,7 @@ describe('ExileWork landing page', () => {
     cy.contains('99.99%').should('be.visible')
   })
 
-  it('scrolls to capabilities section', () => {
+  it('capability strip section exists', () => {
     cy.get('#capabilities').should('exist')
   })
 

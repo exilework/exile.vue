@@ -1,4 +1,4 @@
-import { inject, provide, reactive, computed, type InjectionKey } from 'vue'
+import { inject, provide, reactive, type InjectionKey } from 'vue'
 import { dict, locales, type Locale } from '@/i18n/translations'
 
 const STORAGE_KEY = 'exile.work.locale'
@@ -33,15 +33,17 @@ export function provideI18n() {
     }
   }
 
-  const t = computed(() => {
+  // Accessing state.locale inside the function body makes it reactive —
+  // Vue tracks the dependency when t() is called in a template or computed.
+  function t(key: string): string {
     const table = dict[state.locale] ?? dict.en
-    return (key: string) => table[key] ?? dict.en[key] ?? key
-  })
+    return table[key] ?? dict.en[key] ?? key
+  }
 
   const ctx: I18nContext = {
     get locale() { return state.locale },
     setLocale,
-    get t() { return t.value },
+    t,
     locales,
   }
 
