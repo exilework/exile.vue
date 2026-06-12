@@ -1,45 +1,29 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
+import { useI18n } from '@/composables/useI18n'
 
+const { t } = useI18n()
 const open = ref<string | null>('multiplayer')
 
-const layers = [
-  {
-    id: 'players',
-    label: 'Players',
-    sub: 'The people we keep online.',
-    color: 'var(--brand-green)',
-    tech: ['Web', 'Desktop', 'Mobile clients'],
-  },
-  {
-    id: 'worlds',
-    label: 'Persistent Worlds',
-    sub: 'State that survives sessions, updates and outages.',
-    color: 'var(--brand-blue)',
-    tech: ['Godot', 'Custom engines', 'World state services'],
-  },
-  {
-    id: 'multiplayer',
-    label: 'Multiplayer Systems',
-    sub: 'Authoritative, low-latency, real-time.',
-    color: 'var(--brand-blue)',
-    tech: ['ENet', 'UDP', 'TCP', 'Tick scheduling', 'Interest management'],
-  },
-  {
-    id: 'services',
-    label: 'Distributed Services',
-    sub: 'The product behind the world — accounts, economy, content.',
-    color: 'var(--brand-purple)',
-    tech: ['Elixir', 'Ruby on Rails', 'Go', 'Vue 3', 'PostgreSQL'],
-  },
-  {
-    id: 'infra',
-    label: 'Managed Infrastructure',
-    sub: 'Hosts, pipelines and on-call coverage we run ourselves.',
-    color: 'var(--brand-purple)',
-    tech: ['Terraform', 'Docker', 'DigitalOcean', 'Linux', 'Monitoring'],
-  },
+const layerIds = ['players', 'worlds', 'multiplayer', 'services', 'infra'] as const
+const layerColors = ['var(--brand-green)', 'var(--brand-blue)', 'var(--brand-blue)', 'var(--brand-purple)', 'var(--brand-purple)']
+const layerTech = [
+  ['Web', 'Desktop', 'Mobile clients'],
+  ['Godot', 'Custom engines', 'World state services'],
+  ['ENet', 'UDP', 'TCP', 'Tick scheduling', 'Interest management'],
+  ['Elixir', 'Ruby on Rails', 'Go', 'Vue 3', 'PostgreSQL'],
+  ['Terraform', 'Docker', 'DigitalOcean', 'Linux', 'Monitoring'],
 ]
+
+const layers = computed(() =>
+  layerIds.map((id, i) => ({
+    id,
+    label: t(`eco.layer.${i + 1}.label`),
+    sub: t(`eco.layer.${i + 1}.sub`),
+    color: layerColors[i],
+    tech: layerTech[i],
+  }))
+)
 
 function toggle(id: string) {
   open.value = open.value === id ? null : id
