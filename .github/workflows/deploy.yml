@@ -34,13 +34,14 @@ jobs:
       - name: Unit tests
         run: npm run test:unit -- --run
 
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v4
+
       - name: Build
         run: npm run build
-
-      - name: Add CNAME
-        run: echo "www.exile.work" > dist/CNAME
-
-      - uses: actions/configure-pages@v4
+        env:
+          VITE_BASE: ${{ steps.pages.outputs.base_path }}
 
       - uses: actions/upload-pages-artifact@v3
         with:
