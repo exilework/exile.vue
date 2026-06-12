@@ -89,6 +89,8 @@
   100% { transform: translateY(calc(100vh + 100%)); }
 }
 
+html, body { overflow-x: hidden; }
+
 @utility animate-reveal { animation: reveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) both; }
 @utility animate-pulse-ring { animation: pulse-ring 2.4s cubic-bezier(0.215, 0.61, 0.355, 1) infinite; }
 @utility animate-dash { stroke-dasharray: 8 4; animation: dash 3s linear infinite; }

@@ -58,9 +58,9 @@ const accentVar: Record<string, string> = {
     <div class="relative mx-auto max-w-7xl px-6">
       <div class="max-w-2xl">
         <Reveal>
-          <div class="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.22em] text-background/60">
-            <span class="h-px w-6 bg-background/40" />
-            {{ props.kicker }}
+          <div class="flex w-fit max-w-full items-center gap-2 overflow-hidden font-mono text-xs uppercase tracking-[0.22em] text-background/60">
+            <span class="h-px w-6 shrink-0 bg-background/40" />
+            <span class="truncate">{{ props.kicker }}</span>
           </div>
         </Reveal>
         <Reveal :delay="80">
@@ -106,16 +106,16 @@ const accentVar: Record<string, string> = {
         class="grid items-center gap-12 lg:grid-cols-2"
         :class="props.layout === 'left' ? 'lg:[&>*:first-child]:order-2' : ''"
       >
-        <Reveal>
-          <div>
+        <Reveal class="min-w-0">
+          <div class="min-w-0">
             <div
               :class="[
-                'inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.22em]',
+                'flex w-fit max-w-full overflow-hidden items-center gap-2 font-mono text-xs uppercase tracking-[0.22em]',
                 props.tone === 'dark' ? 'text-background/60' : 'text-muted-foreground',
               ]"
             >
-              <span :class="props.tone === 'dark' ? 'h-px w-6 bg-background/40' : 'h-px w-6 bg-foreground/40'" />
-              {{ props.kicker }}
+              <span :class="props.tone === 'dark' ? 'h-px w-6 shrink-0 bg-background/40' : 'h-px w-6 shrink-0 bg-foreground/40'" />
+              <span class="truncate">{{ props.kicker }}</span>
             </div>
             <h3 class="mt-5 text-balance text-3xl font-semibold tracking-tight md:text-4xl lg:text-5xl">{{ props.title }}</h3>
             <p
@@ -147,7 +147,7 @@ const accentVar: Record<string, string> = {
           </div>
         </Reveal>
 
-        <Reveal :delay="120">
+        <Reveal :delay="120" class="min-w-0">
           <!-- showcase frame -->
           <div
             :class="[
@@ -161,16 +161,16 @@ const accentVar: Record<string, string> = {
                 props.tone === 'dark' ? 'border-background/15' : 'border-border',
               ]"
             >
-              <div class="flex items-center gap-2">
-                <span class="h-1.5 w-1.5 animate-blink rounded-full bg-brand-green" />
+              <div class="flex min-w-0 items-center gap-2">
+                <span class="h-1.5 w-1.5 shrink-0 animate-blink rounded-full bg-brand-green" />
                 <span
                   :class="[
-                    'font-mono text-[10px] uppercase tracking-[0.2em]',
+                    'truncate font-mono text-[10px] uppercase tracking-[0.2em]',
                     props.tone === 'dark' ? 'text-background/55' : 'text-muted-foreground',
                   ]"
                 >{{ props.caseTag ?? `${t('showcase.case')} · ${t('showcase.live')}` }}</span>
               </div>
-              <div :class="['font-mono text-[10px]', props.tone === 'dark' ? 'text-background/40' : 'text-muted-foreground']">
+              <div :class="['shrink-0 font-mono text-[10px]', props.tone === 'dark' ? 'text-background/40' : 'text-muted-foreground']">
                 exile.work
               </div>
             </div>

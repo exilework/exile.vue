@@ -41,7 +41,7 @@ function ping(i: number, p: number) {
         <Reveal :delay="80">
           <h1 class="mt-6 text-balance text-5xl font-semibold tracking-tight md:text-6xl lg:text-7xl">
             {{ t('hero.title.a') }}{{ ' ' }}
-            <span class="relative whitespace-nowrap">
+            <span class="relative md:whitespace-nowrap">
               {{ t('hero.title.b') }}
               <svg viewBox="0 0 200 8" class="absolute -bottom-2 left-0 w-full" preserveAspectRatio="none">
                 <path d="M0 4 Q 50 0, 100 4 T 200 4" stroke="var(--brand-blue)" stroke-width="2" fill="none" />

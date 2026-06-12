@@ -6,7 +6,7 @@
       <div class="h-2.5 w-2.5 rounded-full bg-muted" />
       <span class="ml-3 font-mono text-[11px] text-muted-foreground">match.ex</span>
     </div>
-    <pre class="overflow-hidden p-5 font-mono text-[12px] leading-relaxed"><span class="text-muted-foreground">  1</span> <span :style="{ color: 'var(--brand-purple)' }">defmodule</span> <span class="text-foreground">ExileWork.Match</span> <span :style="{ color: 'var(--brand-purple)' }">do</span>
+    <pre class="w-full overflow-hidden p-5 font-mono text-[12px] leading-relaxed"><span class="text-muted-foreground">  1</span> <span :style="{ color: 'var(--brand-purple)' }">defmodule</span> <span class="text-foreground">ExileWork.Match</span> <span :style="{ color: 'var(--brand-purple)' }">do</span>
 <span class="text-muted-foreground">  2</span>   <span :style="{ color: 'var(--brand-blue)' }">use</span> <span class="text-foreground">GenServer</span>
 <span class="text-muted-foreground">  3</span>
 <span class="text-muted-foreground">  4</span>   <span :style="{ color: 'var(--brand-purple)' }">def</span> <span :style="{ color: 'var(--brand-blue)' }">handle_info</span>(<span class="text-foreground">{:tick, dt}</span>, state) <span :style="{ color: 'var(--brand-purple)' }">do</span>
